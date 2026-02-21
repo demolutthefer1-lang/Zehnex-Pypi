@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zehnex Framework - Professional Telegram Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            scroll-behavior: smooth;
+        }
+        pre, code {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, #1e3a8a 0%, #050505 70%);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: #60a5fa;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .copy-btn:hover {
+            background: rgba(59, 130, 246, 0.4);
+            color: white;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #3b82f6;
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">Z</div>
+                ZEHNEX
+            </div>
+            <div class="hidden md:flex space-x-8 font-semibold text-gray-400">
+                <a href="#features" class="hover:text-white transition">Xususiyatlar</a>
+                <a href="#docs" class="hover:text-white transition">Instruksiya</a>
+                <a href="#modules" class="hover:text-white transition">Modullar</a>
+            </div>
+            <a href="https://github.com" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-bold transition shadow-lg shadow-blue-900/20">
+                GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden hero-gradient">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-block bg-blue-900/30 text-blue-400 px-4 py-1 rounded-full text-sm font-bold mb-6 border border-blue-800">
+                YANGI VERSIYA 1.1.0 ENDI TAYYOR
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">
+                Eng Tezkor <br> <span class="text-blue-500">Telegram Engine</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                Zehnex - bu professional darajadagi Telegram botlarini yaratish uchun mo'ljallangan framework. 
+                Gibrid API tizimi bilan Aiogram va Telebot uslublarini birlashtiradi.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-20">
+                <div class="glass-card p-4 rounded-2xl flex items-center gap-4 border border-blue-900/50">
+                    <code class="text-blue-400 font-bold">pip install zehnex</code>
+                    <button onclick="copyToClipboard('pip install zehnex')" class="text-gray-500 hover:text-white transition">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Dashboard Preview -->
+            <div class="animate-float max-w-5xl mx-auto glass-card rounded-3xl p-2 shadow-2xl shadow-blue-500/10">
+                <div class="bg-gray-900 rounded-2xl overflow-hidden">
+                    <div class="flex items-center gap-2 p-4 bg-gray-800/50 border-b border-gray-700">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-xs text-gray-500 ml-4">Zehnex Gibrid API - main.py</span>
+                    </div>
+                    <div class="p-8 text-left overflow-x-auto">
+                        <pre class="text-gray-300"><code><span class="text-purple-400">from</span> zehnex <span class="text-purple-400">import</span> Zehnex
+
+<span class="text-gray-500"># Botni yaratish</span>
+bot = Zehnex(<span class="text-green-400">"BOT_TOKEN"</span>)
+
+<span class="text-gray-500"># Aiogram uslubida handler</span>
+<span class="text-yellow-400">@bot.message</span>(commands=[<span class="text-green-400">'start'</span>])
+<span class="text-purple-400">async def</span> <span class="text-blue-400">start_aiogram</span>(ctx):
+    <span class="text-purple-400">await</span> ctx.answer(<span class="text-green-400">"Salom, Aiogram uslubida!"</span>)
+
+<span class="text-gray-500"># Telebot uslubida handler</span>
+<span class="text-yellow-400">@bot.message_handler</span>(commands=[<span class="text-green-400">'help'</span>])
+<span class="text-purple-400">async def</span> <span class="text-blue-400">help_telebot</span>(message):
+    <span class="text-purple-400">await</span> bot.send_message(message.chat_id, <span class="text-green-400">"Salom, Telebot uslubida!"</span>)
+
+<span class="text-gray-500"># Ishga tushirish</span>
+bot.run()</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-32 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-black mb-4 uppercase tracking-widest">Nega Zehnex?</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-3xl border-t-4 border-t-blue-600">
+                    <div class="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-bolt text-3xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Gibrid API</h3>
+                    <p class="text-gray-400 leading-relaxed">Siz xohlagan uslubda kod yozing. Aiogram kabi kuchli yoki Telebot kabi sodda. Tanlov o'zingizda.</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl border-t-4 border-t-purple-600">
+                    <div class="w-16 h-16 bg-purple-600/20 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-rocket text-3xl text-purple-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Ultra Tezkor</h3>
+                    <p class="text-gray-400 leading-relaxed">Httpx va Asyncio Semaphore tizimi yordamida botingiz parallel ravishda yuzlab so'rovlarni qabul qiladi.</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl border-t-4 border-t-green-600">
+                    <div class="w-16 h-16 bg-green-600/20 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-box-open text-3xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Tayyor Modullar</h3>
+                    <p class="text-gray-400 leading-relaxed">Video yuklovchi, Valyuta kursi, Wikipedia PDF va QR kod generatori - hammasi o'rnatilgan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="py-32 glass-card border-none">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-4xl font-black mb-12 text-center">TO'LIQ INSTRUKSIYA</h2>
+            
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="flex gap-8">
+                    <div class="flex-none w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-black text-xl">1</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Kutubxonani o'rnatish</h3>
+                        <p class="text-gray-400 mb-6">Terminalni oching va quyidagi buyruqni kiriting. Bu barcha kerakli bog'liqliklarni o'rnatadi.</p>
+                        <div class="relative bg-gray-900 p-6 rounded-2xl border border-gray-700">
+                            <button onclick="copyToClipboard('pip install zehnex')" class="copy-btn">Nusxa olish</button>
+                            <code class="text-blue-400">pip install zehnex</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-8">
+                    <div class="flex-none w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-black text-xl">2</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Asosiy botni yaratish</h3>
+                        <p class="text-gray-400 mb-6">Yangi `.py` fayl oching va quyidagi namunaviy kodni yozing.</p>
+                        <div class="relative bg-gray-900 p-6 rounded-2xl border border-gray-700">
+                            <button onclick="copyCode('code2')" class="copy-btn">Nusxa olish</button>
+                            <pre id="code2" class="text-sm text-gray-300"><code><span class="text-purple-400">from</span> zehnex <span class="text-purple-400">import</span> Zehnex
+
+bot = Zehnex(<span class="text-green-400">"TOKEN"</span>)
+
+<span class="text-yellow-400">@bot.message</span>(commands=[<span class="text-green-400">'start'</span>])
+<span class="text-purple-400">async def</span> <span class="text-blue-400">start</span>(ctx):
+    <span class="text-purple-400">await</span> ctx.reply(<span class="text-green-400">"Xush kelibsiz!"</span>)
+
+bot.run()</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-8">
+                    <div class="flex-none w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-black text-xl">3</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Modullardan foydalanish</h3>
+                        <p class="text-gray-400 mb-6">Zehnex o'zining tayyor modullari bilan ajralib turadi.</p>
+                        <div class="relative bg-gray-900 p-6 rounded-2xl border border-gray-700">
+                            <button onclick="copyCode('code3')" class="copy-btn">Nusxa olish</button>
+                            <pre id="code3" class="text-sm text-gray-300"><code><span class="text-purple-400">from</span> zehnex <span class="text-purple-400">import</span> VideoDownloader, QRGenerator
+
+dl = VideoDownloader()
+qr = QRGenerator()
+
+<span class="text-gray-500"># Video yuklash</span>
+path = <span class="text-purple-400">await</span> dl.download(<span class="text-green-400">"URL"</span>)
+
+<span class="text-gray-500"># QR kod yaratish</span>
+qr_path = <span class="text-purple-400">await</span> qr.generate(<span class="text-green-400">"Salom!"</span>)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-black border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div>
+                <div class="text-3xl font-black mb-4">ZEHNEX</div>
+                <p class="text-gray-500">Professional Telegram Bot Framework. <br> Made with ❤️ for developers.</p>
+            </div>
+            <div class="flex gap-10">
+                <a href="#" class="text-gray-400 hover:text-white transition">Telegram</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">GitHub</a>
+                <a href="#" class="text-gray-400 hover:text-white transition">PyPI</a>
+            </div>
+        </div>
+        <div class="text-center mt-20 text-gray-700 text-xs uppercase tracking-widest">
+            &copy; 2026 ZEHNEX TEAM. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert("Nusxa olindi: " + text);
+        }
+
+        function copyCode(id) {
+            const code = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(code);
+            alert("Koddan nusxa olindi!");
+        }
+
+        // Security: Disable F12, Ctrl+U, etc.
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        }
+
+        // Disable Inspect Element
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>

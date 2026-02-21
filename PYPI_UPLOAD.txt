@@ -1,0 +1,43 @@
+═══════════════════════════════════════════════════════════
+         ZENTEL 1.0.0 — PyPI ga yuklash (TO'G'RI USUL)
+═══════════════════════════════════════════════════════════
+
+⚠️  MUHIM: setup.py ni ISHLATMANG! Faqat quyidagi buyruqlardan foydalaning.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1-QADAM: build va twine o'rnating
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+pip install build twine
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2-QADAM: zentel papkasiga kiring
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+cd zentel
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3-QADAM: Build qiling (bu buyruq dist/ papka hosil qiladi)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+python -m build
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4-QADAM: PyPI ga yuklang
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+twine upload dist/*
+
+  Username: __token__
+  Password: pypi-XXXXXXXXXXXX  (pypi.org dan API token oling)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PyPI API TOKEN olish:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. https://pypi.org ga kiring
+2. Account Settings → API Tokens
+3. "Add API token" bosing
+4. Tokenni nusxa oling
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+O'rnatib tekshirish:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+pip install zentel
+
+═══════════════════════════════════════════════════════════
